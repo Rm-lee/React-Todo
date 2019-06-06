@@ -37,11 +37,12 @@ class App extends React.Component {
     });
      
   };
-  toggleItem = event => {
+  toggleItem = id => {
     const newList = this.state.todos.map(item =>{
       if (item.id === id) {
+        console.log(item)
        const newObj = { ...item,
-        purchased: !item.purchased
+        completed: !item.completed
       };
       return newObj;
     }
@@ -49,12 +50,14 @@ class App extends React.Component {
       return item;
     }
     });
+    this.setState({ todos: newList });
+
   }
 
   render() {
     return (
       <div>
-      <TodoList todos={this.state.todos} togglePurchased={this.state.toggleItem} />
+      <TodoList todos={this.state.todos} toggleCompleted={this.toggleItem} />
       <TodoForm value={this.state.todo} changeHandler={this.changeHandler} addNewItem={this.addItem}/>
     </div>
     );
