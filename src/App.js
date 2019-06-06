@@ -22,7 +22,7 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  submitHandler = event => {
+  addItem = event => {
     event.preventDefault();
     const newtodo = {
       task: this.state.task,
@@ -37,12 +37,25 @@ class App extends React.Component {
     });
      
   };
+  toggleItem = event => {
+    const newList = this.state.todos.map(item =>{
+      if (item.id === id) {
+       const newObj = { ...item,
+        purchased: !item.purchased
+      };
+      return newObj;
+    }
+    else {
+      return item;
+    }
+    });
+  }
 
   render() {
     return (
       <div>
-      <TodoList todos={this.state.todos} />
-      <TodoForm value={this.state.todo} changeHandler={this.changeHandler} submitHandler={this.submitHandler}/>
+      <TodoList todos={this.state.todos} togglePurchased={this.state.toggleItem} />
+      <TodoForm value={this.state.todo} changeHandler={this.changeHandler} addNewItem={this.addItem}/>
     </div>
     );
   }
