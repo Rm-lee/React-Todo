@@ -35,7 +35,6 @@ class App extends React.Component {
   toggleItem = id => {
     const newList = this.state.todos.map(item =>{
       if (item.id === id) {
-        console.log(item)
        const newObj = { ...item,
         completed: !item.completed
       };
