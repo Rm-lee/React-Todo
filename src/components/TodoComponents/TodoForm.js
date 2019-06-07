@@ -12,7 +12,7 @@ function TodoForm(props) {
                 name="task"
             />
             <button type="submit">Todo</button>
-            <button>Clear All</button>
+            <button onClick={props.clearCompleted}>Clear All</button>
         </form>
     );
 }

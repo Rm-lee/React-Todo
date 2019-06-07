@@ -53,12 +53,17 @@ class App extends React.Component {
     this.setState({ todos: newList });
 
   }
+  clearItems = event =>{
+    event.preventDefault();
+    const toBeCompleted = this.state.todos.filter(todo => todo.completed === false);
+    this.setState({todos: toBeCompleted})
+  }
 
   render() {
     return (
       <div>
-      <TodoList todos={this.state.todos} toggleCompleted={this.toggleItem} />
-      <TodoForm value={this.state.todo} changeHandler={this.changeHandler} addNewItem={this.addItem}/>
+      <TodoList todos={this.state.todos} toggleCompleted={this.toggleItem}  />
+      <TodoForm value={this.state.todo} changeHandler={this.changeHandler} addNewItem={this.addItem}clearCompleted={this.clearItems}/>
     </div>
     );
   }
