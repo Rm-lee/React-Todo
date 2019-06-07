@@ -1,10 +1,11 @@
 import React from 'react';
-
+import './TodoForm.css'
 function TodoForm(props) {
     return (
 
         <form onSubmit={props.addNewItem}>
             <input
+                className="input"
                 type="text"
                 value={props.value}
                 onChange={props.changeHandler}

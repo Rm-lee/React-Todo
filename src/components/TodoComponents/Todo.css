@@ -1,6 +1,6 @@
 .taskcompleted{
-    background:blue;
+    text-decoration-line: line-through;
 }
 .task{
-    background:red;
+   
 }
