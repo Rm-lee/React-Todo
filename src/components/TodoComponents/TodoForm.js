@@ -1,10 +1,11 @@
 import React from 'react';
-
+import './TodoForm.css'
 function TodoForm(props) {
     return (
 
-        <form onSubmit={props.submitHandler}>
+        <form onSubmit={props.addNewItem}>
             <input
+                className="input"
                 type="text"
                 value={props.value}
                 onChange={props.changeHandler}
@@ -12,7 +13,7 @@ function TodoForm(props) {
                 name="task"
             />
             <button type="submit">Todo</button>
-            <button>Clear All</button>
+            <button onClick={props.clearCompleted}>Clear All</button>
         </form>
     );
 }
