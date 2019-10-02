@@ -13,11 +13,26 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      todos: todoList,
-      todo: ''
+      todos: todoList
     }
   }
-  completed = event => {
+  
+  toggleCompleted = (event, todoId) => {
+    this.setState({
+      todos: this.state.todos.map(task => {
+        if (task.id === todoId)
+        return {
+          ...task,
+          completed: !task.completed
+        }
+        else {
+          return task
+        }
+      })
+    })
+  }
+
+  clearCompleted = event => {
     event.preventDefault()
     this.setState({
       todos: this.state.todos.filter(task => {
@@ -25,6 +40,7 @@ class App extends React.Component {
       })
     })
   }
+
   render() {
     return (
       <div>
