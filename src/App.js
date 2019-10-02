@@ -20,6 +20,7 @@ class App extends React.Component {
   }
   
   toggleCompleted = (event, todoId) => {
+    
     this.setState({
       todos: this.state.todos.map(task => {
         if (task.id === todoId)
@@ -56,8 +57,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList todos={this.state.todos}/>
-        <TodoForm addTodo={this.addTodo}/>
+        <TodoList todos={this.state.todos} toggleCompleted={this.toggleCompleted}/>
+        <TodoForm addTodo={this.addTodo} clear={this.clearCompleted}/>
       </div>
     );
   }

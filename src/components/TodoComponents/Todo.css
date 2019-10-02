@@ -1,0 +1,6 @@
+.todo-item{
+font-size: 2rem;
+}
+.todocompleted {
+ text-decoration-line: line-through;
+}
