@@ -1,10 +1,10 @@
 import React from 'react';
-import './Todo.css'
+
 const Todo = (props) => {
- console.log()
- console.log(props.todo.completed)
+ 
  return (
-  
+  //on todo click add class name todocompleted otherwise add nothing,
+  //display todo item name
   <div onClick={props.toggleCompleted} className={`todo${props.todo.completed ? "completed" : ""}`}>
    <p className="todo-item">{props.todo.item}</p>
   </div>

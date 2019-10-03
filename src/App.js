@@ -1,6 +1,8 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './components/TodoComponents/Todo.css'
+
 const todoList = [
   {
     item: "Example",
@@ -22,14 +24,14 @@ class App extends React.Component {
   toggleCompleted = (event, todoId) => {
     
     this.setState({
-      todos: this.state.todos.map(task => {
-        if (task.id === todoId)
+      todos: this.state.todos.map(todo => {
+        if (todo.id === todoId)
         return {
-          ...task,
-          completed: !task.completed
+          ...todo,
+          completed: !todo.completed
         }
         else {
-          return task
+          return todo
         }
       })
     })
@@ -48,17 +50,31 @@ class App extends React.Component {
   clearCompleted = event => {
     event.preventDefault()
     this.setState({
-      todos: this.state.todos.filter(task => {
-        return !task.completed
+      todos: this.state.todos.filter(todo => {
+        return !todo.completed
       })
     })
   }
 
   render() {
     return (
-      <div>
+      <div className="wrapper">
+      <div className="landing">
+        
+      </div>
+      <div className="todo-app">
+        <svg viewBox="0 0 500 150">
+        <path id="curve" fill="transparent" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
+        <text width="500" fill="white">
+        <textPath href="#curve" className="heading">
+          Take Note-Todo List
+        </textPath>
+        </text>
+        </svg>
+        
         <TodoList todos={this.state.todos} toggleCompleted={this.toggleCompleted}/>
         <TodoForm addTodo={this.addTodo} clear={this.clearCompleted}/>
+      </div>
       </div>
     );
   }

@@ -17,21 +17,20 @@ class TodoForm extends Component {
  handleSubmit = e => {
   e.preventDefault() 
   this.props.addTodo(e,this.state.todo)
-  console.log(this.state.todo)
   this.setState({
    todo: ''
   })
  }
  render() {
   return (
-   <form onSubmit={this.handleSubmit}>
+   <form className="todo-form" onSubmit={this.handleSubmit}>
     <input
     type="text"
     value={this.state.todo}
     onChange={this.handleChange}
     />
-    <button>Add Todo</button>
-    <button onClick={this.props.clear}>Clear Completed</button>
+    <button className="btn" >Add Todo</button>
+    <button className="btn" onClick={this.props.clear}>Clear Completed</button>
    </form>
   );
  }
