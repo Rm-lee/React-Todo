@@ -46,6 +46,7 @@ font-size: 2rem;
 color:white;
 text-align: center;
 font-weight: 600;
+margin-top:10px;
 }
 .todo-item:hover{
  color: rgb(190, 190, 190)
@@ -69,6 +70,8 @@ font-weight: 600;
  border-bottom: 2px solid rgb(255, 255, 255);
  margin:20px 10px;
  background:#26533b;
+ color:white;
+ font-size:1.3rem;
 }
 .todo-app{
  width: 40%;
@@ -88,9 +91,7 @@ font-weight: 600;
  color: rgb(58, 58, 58);
  background:#09fff3;
 }
-.landing{
 
-}
 .wrapper{
  padding-top:5%;
  background:#26533b;
